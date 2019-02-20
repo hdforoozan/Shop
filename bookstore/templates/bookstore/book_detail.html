@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<p><a href="{% url 'bookstore:book-edit' book.pk %}">ویرایش کتاب</a></p>
+	<p><a href="{% url 'bookstore:book-delete' book.pk %}">حذف کتاب</a></p>
+	<p>نام کتاب : {{ book.name }}</p>
+	{% if book.authors.all %}
+		{% for aut in book.authors.all %}
+				<p>نویسنده : {{ aut }} </p>
+		{% endfor %}
+	{% else %}
+		<p>نویسنده : نامعین</p>
+	{% endif %}
+	<p>ناشر : {{ book.publisher.name }}</p>
+	<p>مترجم : {{ book.translator }}</p>
+	<p>تعداد صفحات : {{ book.pages }}</p>
+	<p>قیمت : {{ book.price }}</p>
+	<p>تاریخ انتشار : {{ book.pubdate }}</p>
+{% endblock %}

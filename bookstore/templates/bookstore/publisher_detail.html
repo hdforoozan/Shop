@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <p>{{ pub.name }}</p>
+    <p><a href="{% url 'bookstore:publisher-edit' pub.pk %}">ویرایش ناشر</a></p>
+    <p><a href="{% url 'bookstore:publisher-delete' pub.pk %}">حذف ناشر</a></p>
+    {% if book_list %}
+        <p>لسیت کتاب های منتشر شده :</p>
+        {% for book in book_list %}
+            <li>{{ book.name }}</li>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

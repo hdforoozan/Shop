@@ -1,0 +1,28 @@
+<html dir="rtl" lang="fa">
+    <head>
+        <title>کتابفروشی هادی</title>
+    </head>
+    <body>
+        <header>
+          {% block header %}
+            <h1><a href="/">فروشگاه کتاب هادی</a></h1>
+            <h2><a href="{% url 'bookstore:bookstore' %}">فروشگاه من</a></h2>
+            {% if user.is_authenticated %}
+              <p>سلام {{ user.username }}</p>
+              <p><a href="{% url 'logout' %}">خروج</a></p>
+            {% else %}
+              <p>شما هنوز وارد نشده اید</p>
+            {% endif %}
+          {% endblock header %}
+        </header>
+      <div class="navigation">
+          {% block navbar %}
+          {% endblock navbar %}
+      </div>
+      <div class="container">
+          {% block content %}
+
+          {% endblock content %}
+      </div>
+    </body>
+</html>

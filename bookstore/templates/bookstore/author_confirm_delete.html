@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>حذف نویسنده</h1>
+<form action="" method="post">{% csrf_token %}
+    <p>آیا از حذف "{{aut.name}}" مطمئن هستید؟</p>
+    <input type="submit" value="تایید" />
+</form>
+{% endblock %}

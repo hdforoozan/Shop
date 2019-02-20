@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block navbar %}
+		<p><a href="{% url 'bookstore:authors' %}">نویسندگان</a></p>
+		<p><a href="{% url 'bookstore:books' %}">کتاب ها</a></p>
+		<p><a href="{% url 'bookstore:publishers' %}">ناشران</a></p>
+		<p><a href="{% url 'bookstore:author-new' %}">افزودن نویسنده</a></p>
+{% endblock navbar %}
+
+{% block content %}
+	{% for aut in object_list %}
+		<li><a href="{% url 'bookstore:author-detail' aut.id %}">{{ aut.name }}</a></li>
+	{% endfor %}
+{% endblock %}
